@@ -12,5 +12,6 @@ Currently relies on Splunk as a data store, but can be extended to use an open-s
 Relies on Uberi's SpeechRecognition PyAudio and API wrapper: https://github.com/Uberi/speech_recognition
 
 # Usage
+Start Splunk
 Run say_what.py
 ### TODO: Improve usage
