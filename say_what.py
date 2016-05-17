@@ -52,7 +52,7 @@ def create_event(results):
 def send_to_splunk(event):
     event_json = json.dumps(event)
     # Ignore ssl cert warning
-    requests.packages.urllib3.disable_warnings()
+    # requests.packages.urllib3.disable_warnings()
     try :
         r = requests.post("%s:8088/services/collector/event" % SPLUNK_URL,
             headers={"Authorization": "Splunk %s" % hec_token},
