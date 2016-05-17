@@ -1,5 +1,5 @@
 # Say What?
-This script listens to meetings I should be paying attention to and pings me on hipchat when my name is mentioned.
+This script listens to meetings I'm supposed to be paying attention to and pings me on hipchat when my name is mentioned.
 
 It sends me a transcript of what was said in the minute before my name was mentioned and some time after. 
 
