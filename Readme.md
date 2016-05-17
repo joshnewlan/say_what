@@ -1,3 +1,4 @@
+# Say What?
 This script listens to meetings I should be paying attention to and pings me on hipchat when my name is mentioned.
 
 It sends me a transcript of what was said in the minute before my name was mentioned and some time after. 
@@ -9,3 +10,7 @@ Uses IBM's Speech to Text Watson API for the audio-to-text.
 Currently relies on Splunk as a data store, but can be extended to use an open-source tool instead.
 
 Relies on Uberi's SpeechRecognition PyAudio and API wrapper: https://github.com/Uberi/speech_recognition
+
+# Usage
+Run say_what.py
+### TODO: Improve usage
