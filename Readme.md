@@ -13,5 +13,6 @@ Relies on Uberi's SpeechRecognition PyAudio and API wrapper: https://github.com/
 
 # Usage
 Start Splunk
+
 Run say_what.py
 ### TODO: Improve usage
