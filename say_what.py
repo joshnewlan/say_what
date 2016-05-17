@@ -5,9 +5,6 @@ import requests
 import thread
 import subprocess
 
-# Ignore ssl cert warning
-requests.packages.urllib3.disable_warnings()
-
 SPLUNK_URL = "https://localhost"
 # Splunk http event collector token
 hec_token = ""
@@ -54,6 +51,8 @@ def create_event(results):
 
 def send_to_splunk(event):
     event_json = json.dumps(event)
+    # Ignore ssl cert warning
+    requests.packages.urllib3.disable_warnings()
     try :
         r = requests.post("%s:8088/services/collector/event" % SPLUNK_URL,
             headers={"Authorization": "Splunk %s" % hec_token},
