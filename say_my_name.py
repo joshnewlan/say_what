@@ -14,11 +14,11 @@ hipchat_url = "https://hipchat.company.com"
 hipchat_auth_token = ""
 hipchat_user_id = 1
 
-your_name = "josh"
+name = "josh"
 
 # Check for mentions within the last minute
 name_search = ("""search index=say_what sourcetype=_json """
-                """minutes=*{}* earliest=-1m@s""".format(your_name))
+                """minutes=*{}* earliest=-1m@s""".format(name))
 
 # Get everything that was said in the last minute
 minutes_search = ("""search index=say_what sourcetype=_json """
@@ -112,6 +112,7 @@ while True:
     if len(mentioned) == 0:
         time.sleep(1)
         continue
+    mention_time = time.time()
     print "You were mentioned!"
     minutes = splunk_search(minutes_search)
     try:
@@ -119,6 +120,10 @@ while True:
         notify(hipchat_user_id,hipchat_auth_token,minutes)
     except Exception as e:
         print e
-
+        
+    while int(time.time() - mention_time) < 15:
+        time.sleep(1)
+    
     muted()
+    # Wait another minute before checking for name mentions
     time.sleep(60)
