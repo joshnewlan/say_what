@@ -91,7 +91,7 @@ def notify(user_id,auth_token,message):
 
     data = json.dumps(data)
 
-    r = requests.post('{}/v2/user/{}/message'.format(hipchat_url,user_id),
+    r = requests.post('{}/v2/user/{}/message'.format(hipchat_url,hipchat_user_id),
         data=data,
         headers = {
             'content-type': 'application/json',
