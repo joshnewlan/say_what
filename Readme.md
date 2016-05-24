@@ -17,7 +17,6 @@ Relies on Uberi's SpeechRecognition PyAudio and API wrapper: https://github.com/
 	* This has to be enterprise; the HTTP Event Collector feature used here doesn't exist in light
 2. Add your credentials to ```CREDS``` in say\_my\_name.py
 2. [Add an http event collector to Splunk](http://localhost:8000/en-US/manager/launcher/http-eventcollector) and enable it in global settings (but do not enable acknowledgement)
-2. Edit the ```SPLUNK_URL``` in say\_what.py to point at your appropriate port (8000?)
 3. [Get a hipchat API token](https://[your company].hipchat.com/account/api) and update the hipchat fields in say\_my\_name.py
 	* Your hipchat user id is the second number in your hipchat jabber info
 4. Update ```name``` in say\_my\_name.py unless your name is Josh
