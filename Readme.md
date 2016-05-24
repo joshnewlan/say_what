@@ -16,19 +16,19 @@ Relies on Uberi's SpeechRecognition PyAudio and API wrapper: https://github.com/
 1. [Sign up for, install, and run Splunk Enterprise](http://www.splunk.com/en_us/download-5.html)
 	* This has to be enterprise; the HTTP Event Collector feature used here doesn't exist in light
 2. Add your credentials to ```CREDS``` in say\_my\_name.py
-2. [Add an http event collector to Splunk](http://localhost:8000/en-US/manager/launcher/http-eventcollector) and enable it in global settings (but do not enable acknowledgement)
-3. [Get a hipchat API token](https://[your company].hipchat.com/account/api) and update the hipchat fields in say\_my\_name.py
+3. [Add an http event collector to Splunk](http://localhost:8000/en-US/manager/launcher/http-eventcollector) and enable it in global settings (but do not enable acknowledgement)
+4. [Get a hipchat API token](https://[your company].hipchat.com/account/api) and update the hipchat fields in say\_my\_name.py
 	* Your hipchat user id is the second number in your hipchat jabber info
-4. Update ```name``` in say\_my\_name.py unless your name is Josh
-2. [Create an IBM Bluemix account](https://console.ng.bluemix.net/registration/)
-3. [Add a speech-to-text plan](https://new-console.ng.bluemix.net/catalog/services/speech-to-text/)
-4. Add your credentials to say\_what.py for ```IBM_USERNAME``` and ```IBM_PASSWORD```
-1. [Install Homebrew](http://brew.sh/)
-2. ```brew install python```
-3. ```brew install portaudio```
-4. ```pip install pyaudio```
-5. ```pip install SpeechRecognition```
-6. ```pip install requests```
+5. Update ```name``` in say\_my\_name.py unless your name is Josh
+6. [Create an IBM Bluemix account](https://console.ng.bluemix.net/registration/)
+7. [Add a speech-to-text plan](https://new-console.ng.bluemix.net/catalog/services/speech-to-text/)
+8. Add your credentials to say\_what.py for ```IBM_USERNAME``` and ```IBM_PASSWORD```
+9. [Install Homebrew](http://brew.sh/)
+10. ```brew install python```
+11. ```brew install portaudio```
+12. ```pip install pyaudio```
+13. ```pip install SpeechRecognition```
+14. ```pip install requests```
 
 ##Usage
 
