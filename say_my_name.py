@@ -1,13 +1,12 @@
-import requests
-from requests.auth import HTTPBasicAuth
-import time
 import json
+import requests
 import subprocess
+import time
 
 requests.packages.urllib3.disable_warnings()
 
 SPLUNK_URL = 'https://localhost:8089'
-CREDS = ('username','password')
+AUTH = requests.auth.HTTPBasicAuth('username','password')
 
 # Hipchat creds and my user id
 hipchat_url = "https://hipchat.company.com"
@@ -29,7 +28,7 @@ def start_splunk_search(search_string):
         r = requests.post(
             '%s/services/search/jobs' % SPLUNK_URL, 
             data={"search": search_string}, 
-            auth=HTTPBasicAuth(*CREDS), 
+            auth=AUTH, 
             verify=False,
             params={'output_mode': 'json'})
     except Exception, e:
@@ -45,7 +44,7 @@ def search_results(sid):
     while done == False:
         status = requests.get(
         '%s/services/search/jobs/%s' % (SPLUNK_URL, sid), 
-        auth=HTTPBasicAuth(*CREDS), 
+        auth=AUTH, 
         verify=False,
         params={'output_mode': 'json'})
 
@@ -64,7 +63,7 @@ def get_results(sid,result_count):
         offset = len(events)
         results = requests.get(
             '%s/services/search/jobs/%s/results/' % (SPLUNK_URL, sid), 
-            auth=HTTPBasicAuth(*CREDS), 
+            auth=AUTH, 
             verify=False,
             params={'output_mode': 'json', 'count': 0, 'f': 'minutes','offset': offset})
 
@@ -89,10 +88,8 @@ def notify(user_id,auth_token,message):
         'message_format': 'text'
     }
 
-    data = json.dumps(data)
-
-    r = requests.post('{}/v2/user/{}/message'.format(hipchat_url,user_id),
-        data=data,
+    r = requests.post('{}/v2/user/{}/message'.format(hipchat_url, user_id),
+        data=json.dumps(data),
         headers = {
             'content-type': 'application/json',
             "Authorization": "Bearer {}".format(auth_token)
@@ -109,15 +106,14 @@ def muted():
 
 while True:
     mentioned = splunk_search(name_search)
-    if len(mentioned) == 0:
+    if not mentioned:
         time.sleep(1)
         continue
     mention_time = time.time()
     print "You were mentioned!"
     minutes = splunk_search(minutes_search)
     try:
-        minutes = "\n".join(minutes)
-        notify(hipchat_user_id,hipchat_auth_token,minutes)
+        notify(hipchat_user_id, hipchat_auth_token, "\n".join(minutes))
     except Exception as e:
         print e
         
