@@ -113,9 +113,9 @@ while True:
         continue
     mention_time = time.time()
     print("You were mentioned!")
-    minutes = splunk_search(minutes_search)
+    minutes = "\n".join(splunk_search(minutes_search))
     try:
-        notify(hipchat_user_id, hipchat_auth_token, "\n".join(minutes))
+        notify(hipchat_user_id, hipchat_auth_token, minutes)
     except Exception as e:
         print(e)
 
