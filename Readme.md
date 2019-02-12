@@ -11,7 +11,7 @@ Currently relies on Splunk as a data store, but can be extended to use an open-s
 
 Relies on Uberi's SpeechRecognition PyAudio and API wrapper: https://github.com/Uberi/speech_recognition
 
-##Installation (OS X)
+## Installation (OS X)
 
 1. [Sign up for, install, and run Splunk Enterprise](http://www.splunk.com/en_us/download-5.html)
 	* This has to be enterprise; the HTTP Event Collector feature used here doesn't exist in light
@@ -30,7 +30,7 @@ Relies on Uberi's SpeechRecognition PyAudio and API wrapper: https://github.com/
 13. ```pip install SpeechRecognition```
 14. ```pip install requests```
 
-##Usage
+## Usage
 
 1. Start Splunk
 2. Run say_what.py
